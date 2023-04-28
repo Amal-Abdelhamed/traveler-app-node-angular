@@ -5,5 +5,8 @@ require("../database/connection")
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+const userRouter=require('../routes/user.routes')
+app.use('/api/user',userRouter)
+
 module.exports = app
 
