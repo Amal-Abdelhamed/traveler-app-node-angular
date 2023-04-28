@@ -1,6 +1,6 @@
 const userModule=require("../../database/models/user.model")
 const handler=require("../handler")
-
+const { query } = require("express")
 class User{
  
     static register=async(req,res)=>{
@@ -30,6 +30,7 @@ class User{
     }
 
 static logout = async (req, res) => {
+    console.log(req.user);
   try {
     if (!req.user) {
       return handler.resHandler(res, 401, false, {}, "User not authenticated");
