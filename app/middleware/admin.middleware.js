@@ -4,14 +4,17 @@ const handler = require('../handler')
 
 
 
-const auth = async (req, res, next) => {
+const authAdmin = async (req, res, next) => {
     try {
         const token = req.header("Authorization").replace("bearer ", "")
         const decodedToken = verify(token, process.env.JWT)
         const userData = await userModel.findOne({
             _id: decodedToken._id,
-            "tokens.token": token
+            "tokens.token": token,
+            role:"admin"
+        
         })
+        console.log(userData);
         if (!userData) throw new Error("not authorized")
         req.user = userData
         req.token = token
@@ -20,9 +23,9 @@ const auth = async (req, res, next) => {
 
     }
     catch (e) {
-        handler.resHandler(res, 500, false, e.message, "user not authorized")
+                handler.resHandler(res, 500, false, e.message, "user not authorized")
 
     }
 }
 
-module.exports = auth
+module.exports = authAdmin
