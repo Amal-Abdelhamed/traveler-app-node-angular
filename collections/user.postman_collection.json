@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "eb3b6885-e51a-4c31-8577-9cd1e6c63d3b",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22097529",
+		"_collection_link": "https://web.postman.co/workspace/travel-Api~6699c828-14c1-42d5-bd18-695cde8b0d93/collection/22097529-eb3b6885-e51a-4c31-8577-9cd1e6c63d3b?action=share&creator=22097529&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"habiba\",\r\n    \"fristName\":\"habiba\",\r\n    \"lastName\":\"abdalfatah\",\r\n    \"email\":\"habiba@gmial.com\",\r\n    \"password\":\"5257We3@mmT!\",\r\n    \"gender\":\"female\",\r\n    \"age\":24,\r\n    \"phone\": \"+201094148132\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/register",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\":\"habiba@gmial.com\",\r\n    \"password\":\"5257We3@mmT!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/login",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDRiYTUzZGFmNDJmYTgyZmFmMzE0NGUiLCJpYXQiOjE2ODI2ODEzNjZ9.-Dbzl6JaO-21qgiRX5Sv-XZ7vUTe7mgGtKivb9_n-XM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/logout",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000/api/",
+			"type": "string"
+		}
+	]
+}
