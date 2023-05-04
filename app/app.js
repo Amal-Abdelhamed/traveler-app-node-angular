@@ -8,5 +8,8 @@ app.use(express.urlencoded({ extended: true }))
 const userRouter=require('../routes/user.routes')
 app.use('/api/user',userRouter)
 
+const adminRouter=require('../routes/admin.routes')
+app.use('/api/admin',adminRouter)
+
 module.exports = app
 
