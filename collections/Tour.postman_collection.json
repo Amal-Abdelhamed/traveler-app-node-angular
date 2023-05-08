@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "a092897a-d439-41f3-9bdb-09abe648f51f",
+		"name": "Tour",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25814145"
+	},
+	"item": [
+		{
+			"name": "add new tour",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rate\":\"25\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/tour/addTour",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tour",
+						"addTour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editTour",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"_id\",\r\n    \"name\":\"country\",\r\n    \"price\":654,\r\n    \"days\":5454,\r\n    \"country\":\"country name\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}editTour",
+					"host": [
+						"{{url}}editTour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete one Tour",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "_id",
+						"value": "f5e4fe54e5f45e4fe54fef",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}deleteTour",
+					"host": [
+						"{{url}}deleteTour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allTour",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}allTour",
+					"host": [
+						"{{url}}allTour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete all tour",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}delAllTour",
+					"host": [
+						"{{url}}delAllTour"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:3000//tours/tour/",
+			"type": "string"
+		}
+	]
+}
