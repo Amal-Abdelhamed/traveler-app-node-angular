@@ -20,6 +20,6 @@ app.all('*', (req, res) => {
 
 const adminRouter=require('../routes/admin.routes')
 app.use('/api/admin',adminRouter)
-\
+
 module.exports = app
 
