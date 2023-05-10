@@ -9,6 +9,6 @@ Router.patch('/editTour', authAdmin, tourController.editTour)
 Router.delete('/delOneTour/:_id', authAdmin, tourController.deleteOneTour)
 Router.get('/allTour', authAdmin, tourController.allTour)
 Router.delete('/delAllTour', authAdmin, tourController.delAllTour)
-Router.patch("/updatePImg/:id", upload.single("file"), tourController.updatePimg)
+Router.patch("/updatePImg", authAdmin, upload.single("image"), tourController.updatePimg)
 
 module.exports = Router

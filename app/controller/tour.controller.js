@@ -8,16 +8,21 @@ class Tour {
             await newTour.save()
             handler.resHandler(res, 200, 'success', newTour, 'new tour add successful')
         } catch (e) {
-            handler.resHandler(res, 404, 'false', JSON.parse(JSON.stringify(e)), 'new tour add successful')
+            handler.Errors(res, e.errors)
         }
     }
 
     static editTour = async (req, res) => {
         try {
-            const newTour = await tourModel.findByIdAndUpdate(req._id, req.body)
-            handler.resHandler(res, 200, 'success', newTour, 'Tour updated')
+            if (!req.body._id) {
+                throw new Error("invalid data")
+            } else {
+                const newTour = await tourModel.findByIdAndUpdate(req.body._id, req.body)
+                console.log(req.body._id);
+                handler.resHandler(res, 200, 'success', newTour, 'Tour updated')
+            }
         } catch (e) {
-            handler.resHandler(res, 400, 'false', JSON.parse(JSON.stringify(e)), 'Tour not updated')
+            handler.Errors(res, e.errors)
         }
     }
 
@@ -29,25 +34,25 @@ class Tour {
             }
             handler.resHandler(res, 200, 'success', delTour, 'Tour deleted')
         } catch (e) {
-            handler.resHandler(res, 404, 'false', JSON.parse(JSON.stringify(e)), 'Tour not deleted')
+            handler.Errors(res, e.errors)
         }
     }
 
     static allTour = async (req, res) => {
         try {
             const newTour = await tourModel.find()
-            handler.resHandler(res, 200, 'success', newTour, 'Tour')
+            handler.resHandler(res, 200, 'success', newTour, 'All Tour')
         } catch (e) {
-            handler.resHandler(res, 404, 'false', JSON.parse(JSON.stringify(e)), 'error with Tour')
+            handler.Errors(res, e.errors)
         }
     }
 
     static delAllTour = async (req, res) => {
         try {
             const newTour = await tourModel.deleteMany()
-            handler.resHandler(res, 200, 'success', newTour, 'Tour')
+            handler.resHandler(res, 200, 'success', newTour, 'Tour deleted successfull')
         } catch (e) {
-            handler.resHandler(res, 400, 'false', JSON.parse(JSON.stringify(e)), 'error with Tour')
+            handler.Errors(res, e.errors)
         }
     }
 
@@ -55,12 +60,14 @@ class Tour {
         try {
             const ext = handler.fileHandler(req)
             req.user = `${process.env.APPUrl}${req.file.filename}.${ext}`
-            const tourImage = await tourModel.findByIdAndUpdate(req.params.id, { "image": req.user })
-            await tourImage.save()
-            handler.resHandler(res, 200, true, tourImage, "done")
+            const tourImage = await tourModel.findByIdAndUpdate(req.headers._id, { "image": req.user })
+            console.log(req.headers);
+            // await tourImage.save()
+            handler.resHandler(res, 200, true, req.file, "done")
         }
         catch (e) {
-            handler.resHandler(res, 500, false, e.message, "Error featch data")
+            console.log(e);
+            handler.Errors(res, e.message)
         }
     }
 }

@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"rate\":\"25\"\r\n}",
+					"raw": "{\r\n    \"rate\":\"ergw\",\r\n    \"name\":\"wef\",\r\n    \"price\":545,\r\n    \"description\":\"ewf\",\r\n    \"image\":\"wef\",\r\n    \"days\":\"eqfq\",\r\n    \"age\":54,\r\n    \"country\":\"qefqf\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,12 +37,23 @@
 		},
 		{
 			"name": "editTour",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"content-length": true,
+					"host": true,
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\":\"_id\",\r\n    \"name\":\"country\",\r\n    \"price\":654,\r\n    \"days\":5454,\r\n    \"country\":\"country name\"\r\n}",
+					"raw": "{\r\n    \"_id\":\"645a7af89313ff6fe4ecd782\",\r\n    \"name\":\"country\",\r\n    \"price\":654,\r\n    \"days\":5454,\r\n    \"country\":\"country name\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,12 +71,21 @@
 		},
 		{
 			"name": "delete one Tour",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept-encoding": true,
+					"connection": true,
+					"accept": true,
+					"host": true
+				}
+			},
 			"request": {
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "_id",
-						"value": "f5e4fe54e5f45e4fe54fef",
+						"value": "645a7af79313ff6fe4ecd77e",
 						"type": "text"
 					}
 				],
@@ -79,9 +99,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}deleteTour",
+					"raw": "{{url}}delOneTour/645a7af79313ff6fe4ecd780",
 					"host": [
-						"{{url}}deleteTour"
+						"{{url}}delOneTour"
+					],
+					"path": [
+						"645a7af79313ff6fe4ecd780"
 					]
 				}
 			},
@@ -114,6 +137,14 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "update image",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -139,7 +170,12 @@
 	"variable": [
 		{
 			"key": "url",
-			"value": "localhost:3000//tours/tour/",
+			"value": "localhost:3000/api/tour/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVhZTI4OGViZmVmY2UzNGI4MDk2N2UiLCJpYXQiOjE2ODM2Nzc5Nzh9.DNFCbPkfsZ64o7VXlL7q16Plqb8MnHqOwDpgR4_CFgI",
 			"type": "string"
 		}
 	]
