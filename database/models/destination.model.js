@@ -14,7 +14,7 @@ const destinationSchema = mongoose.Schema({
         {country:{
             type : String,
            
-           //required: true,
+           required: true,
         },
         visareq:{
             type : String,
@@ -22,14 +22,14 @@ const destinationSchema = mongoose.Schema({
            required: true,
         },
         language:{
-            type : String,
+            type : [String],
             trim : true,
            required: true,
         },
         currency:{
             type : String,
             trim : true,
-           // required: true,
+            required: true,
         },
         Area:{
             type : String,
@@ -37,11 +37,46 @@ const destinationSchema = mongoose.Schema({
             required: true,
         }}
     ],
-    img :{
+    cover :{
         type : String,
         trim : true,
     },
+ continent: {
+    type: String,
+    required: true,
+  },
+   info: [
+    {
+      "max-guests": {
+        type: Number,
+      },
+      "min-age": {
+        type: Number,
+      },
+      location: {
+        type: String,
+      },
+    },
+  ],
+  
 
+
+    
+},{timestamps:true})
+
+destinationSchema.virtual("desTours", {
+    ref:"moreTour",
+    localField:"_id",
+    foreignField:"idDetination"
 })
+
+destinationSchema.methods.generateToken = function () {
+  const payload = {
+    destinationId: this._id,
+  };
+  const token = jwt.sign(payload, "mysecretkey", { expiresIn: "1h" });
+  return token;
+};
+
 const destinationModel=mongoose.model("destination",destinationSchema)
 module.exports = destinationModel

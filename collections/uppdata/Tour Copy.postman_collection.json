@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "44e549e5-0aeb-4bc2-a0fd-2d037b5f1584",
+		"name": "Tour Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22097529",
+		"_collection_link": "https://gold-desert-648714.postman.co/workspace/Api-exam-system~bf2b5f7d-2e33-40e4-b489-a24c9a524c6f/collection/22097529-44e549e5-0aeb-4bc2-a0fd-2d037b5f1584?action=share&creator=22097529&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "add new tour",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODU0NDU4MDR9.3aXF_g0j57bxWkR_BJE2bDfBu0_AkilmEuUu7-sB5F0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idDetination\":\"6471cc3a4a5a814acfd5179d\",\r\n  \"rate\": \"88\",\r\n  \"name\": \"Lake Agnes Trail Hike\",\r\n  \"location\": \"Banff National Park, Alberta, Canada\",\r\n  \"price\": 500,\r\n  \"overview\": \"Experience the breathtaking beauty of the Canadian Rockies on this moderate hike to Lake Agnes. This trail is surrounded by stunning scenery, including waterfalls, forests, and mountain vistas. It's the perfect way to immerse yourself in nature and escape the hustle and bustle of city life.\",\r\n  \"duration\": 750,\r\n  \"image\": \"https://www.pc.gc.ca/en/pn-np/ab/banff/activ/randonee-hike/agnes\",\r\n  \"include\": [\r\n    \"Professional guide\",\r\n    \"Transportation to and from the trailhead\",\r\n    \"Snacks and water\"\r\n  ],\r\n  \"exclude\": [\r\n    \"Hiking gear (can be rented for an additional fee)\"\r\n  ],\r\n  \"amenities\": [\r\n    \"Restrooms\",\r\n    \"Picnic area\",\r\n    \"Parking\"\r\n  ],\r\n  \"age\": 18,\r\n  \"country\": \"Canada\",\r\n  \"plan\": [\r\n    {\r\n      \"day\": \"Day 1\",\r\n      \"details\": \"Meet your guide and travel to the trailhead. Begin your hike to Lake Agnes and stop for a picnic lunch along the way. Arrive at Lake Agnes and enjoy the stunning views. Return to the trailhead and travel back to your hotel.\"\r\n    },\r\n    {\r\n      \"day\": \"Day 2\",\r\n      \"details\": \"Free day to explore Banff National Park on your own. Optional activities include visiting hot springs, taking a gondola ride, or renting a bike to explore the park.\"\r\n    },\r\n    {\r\n      \"day\": \"Day 3\",\r\n      \"details\": \"Check out of your hotel and depart for your next destination.\"\r\n    }\r\n  ],\r\n  \"destination\": \"Banff National Park is a UNESCO World Heritage site located in the Canadian Rockies. It's known for its stunning natural beauty, including glaciers, mountains, and lakes. The park is home to a variety of wildlife, including grizzly bears, wolves, and elk.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/tour/addTour",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tour",
+						"addTour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete one Tour",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept-encoding": true,
+					"connection": true,
+					"accept": true,
+					"host": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "_id",
+						"value": "645a7af79313ff6fe4ecd77e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}delOneTour/645a7af79313ff6fe4ecd780",
+					"host": [
+						"{{url}}delOneTour"
+					],
+					"path": [
+						"645a7af79313ff6fe4ecd780"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allTour",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}allTour",
+					"host": [
+						"{{url}}allTour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete all tour",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}delAllTour",
+					"host": [
+						"{{url}}delAllTour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single tour",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/tour/getSingleTour/6471b355b6558bc330a9521a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tour",
+						"getSingleTour",
+						"6471b355b6558bc330a9521a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edite tour",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODU0NDU4MDR9.3aXF_g0j57bxWkR_BJE2bDfBu0_AkilmEuUu7-sB5F0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rate\": \"98\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/tour/editTour/6471b355b6558bc330a9521a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tour",
+						"editTour",
+						"6471b355b6558bc330a9521a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All tours**",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "6475f2192ad0d74a6a74764f",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/tour/desTours",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tour",
+						"desTours"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:3000/api/tour/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVhZTI4OGViZmVmY2UzNGI4MDk2N2UiLCJpYXQiOjE2ODM2Nzc5Nzh9.DNFCbPkfsZ64o7VXlL7q16Plqb8MnHqOwDpgR4_CFgI",
+			"type": "string"
+		}
+	]
+}

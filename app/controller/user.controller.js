@@ -59,10 +59,11 @@ static profile = async (req, res) => {
       try {
          const query = { role: "user", isAdmin: { $ne: true } };
         const users = await userModule.find(query)
+        const userCount=users.length
         if (users.length === 0) {
       handler.resHandler(res, 404, false, {}, " Don't have any users yet")
     }
-      handler.resHandler(res, 200, true, users, " All users data")
+      handler.resHandler(res, 200, true, {userCount,users}," All users data")
 
       }catch(e){
         handler.resHandler(res, 500, false, e.message, "Error can't get data");

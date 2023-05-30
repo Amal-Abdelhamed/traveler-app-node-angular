@@ -1,28 +1,40 @@
 const tourModel = require('../../database/models/tour.model')
+const destinationModel=require('../../database/models/destination.model')
 const handler = require('../handler')
 
 class Tour {
     static addTour = async (req, res) => {
         try {
-            const newTour = await tourModel(req.body)
+            const newTour = new tourModel(req.body)
+
             await newTour.save()
             handler.resHandler(res, 200, 'success', newTour, 'new tour add successful')
         } catch (e) {
-            handler.Errors(res, e.errors)
+            handler.resHandler(res,500,false,e.message, "failed to add  tour")
+        }
+    }
+    static desTours= async(req, res)=>{
+        try{
+                         const allTours= await destinationModel.findById(req.params.id)
+                         req.tour=allTours
+                         console.log(allTours);
+             await allTours.tours.populate("desTours")
+             handler.resHandler(res,200,'success',req.user.desTours,'desTours success')
+        }
+        catch (e) {
+            handler.resHandler(res,500,false,e.message, "failed to show tour")
         }
     }
 
     static editTour = async (req, res) => {
         try {
-            if (!req.body._id) {
-                throw new Error("invalid data")
-            } else {
-                const newTour = await tourModel.findByIdAndUpdate(req.body._id, req.body)
-                console.log(req.body._id);
-                handler.resHandler(res, 200, 'success', newTour, 'Tour updated')
+             const tour = await tourModel.findByIdAndUpdate(req.params.id,req.body)
+            
+                await tour.save()
+                handler.resHandler(res, 200, true, tour, "tour edited successfully")
             }
-        } catch (e) {
-            handler.Errors(res, e.errors)
+        catch (e) {
+            handler.resHandler(res,500,false,e.message, "failed to edit  tour")
         }
     }
 
@@ -34,17 +46,17 @@ class Tour {
             }
             handler.resHandler(res, 200, 'success', delTour, 'Tour deleted')
         } catch (e) {
-            handler.Errors(res, e.errors)
+           handler.resHandler(res,500,false,e.message, "failed to delete  tour")
         }
     }
 
     static allTour = async (req, res) => {
         try {
             const newTour = await tourModel.find()
-            handler.resHandler(res, 200, 'success', newTour, 'All Tour')
+            const tourNum=newTour.length
+            handler.resHandler(res, 200, 'success', {tourNum,newTour}, 'All Tour')
         } catch (e) {
-            handler.Errors(res, e.errors)
-        }
+handler.resHandler(res,500,false,e.message, "failed to show all tour")        }
     }
 
     static delAllTour = async (req, res) => {
@@ -52,9 +64,18 @@ class Tour {
             const newTour = await tourModel.deleteMany()
             handler.resHandler(res, 200, 'success', newTour, 'Tour deleted successfull')
         } catch (e) {
-            handler.Errors(res, e.errors)
+            handler.resHandler(res,500,false,e.message, "failed delete all  tour")
         }
     }
+
+    static showSingleTour = async (req, res) => {
+        try {
+            const tour = await tourModel.findById(req.params.id);
+            handler.resHandler(res, 200, true, tour, "tour")
+
+        } catch (e) { handler.resHandler(res, 500, false, e.message, "Error can't get data ") }
+    };
+
 
     static updatePimg = async (req, res) => {
         try {
@@ -67,9 +88,11 @@ class Tour {
         }
         catch (e) {
             console.log(e);
-            handler.Errors(res, e.message)
+            handler.resHandler(res,500,false,e.message, "failed to add  pic")
         }
     }
-}
+
+
+   }
 
 module.exports = Tour

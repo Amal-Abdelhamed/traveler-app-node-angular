@@ -1,4 +1,5 @@
 const userModel = require("../../database/models/user.model")
+const destModel = require('../../database/models/destination.model')
 const { verify } = require("jsonwebtoken")
 const handler = require('../handler')
 

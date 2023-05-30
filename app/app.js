@@ -16,13 +16,13 @@ app.use('/api/user', userRouter)
 
 const tourRouter = require('../routes/tour.routes')
 app.use('/api/tour', tourRouter)
+const adminRouter = require('../routes/admin.routes')
+app.use('/api/admin', adminRouter)
 
 app.all('*', (req, res) => {
     res.status(404).send({ status: false, data: null, message: 'invalid url' })
 })
 
-const adminRouter = require('../routes/admin.routes')
-app.use('/api/admin', adminRouter)
 
 module.exports = app
 

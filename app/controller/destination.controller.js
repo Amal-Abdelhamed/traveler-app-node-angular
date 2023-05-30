@@ -1,13 +1,22 @@
 const destinationModel = require ("../../database/models/destination.model")
+const tourModule=require('../../database/models/tour.model')
 const Handler = require("../handler")
 const fs = require ("fs")
 
-class destination{
+class Destination{
     static add = async (req,res)=>{
         try{
             const destData= new destinationModel(req.body)
+
             await destData.save()
-            Handler.resHandler(res,200,true,destData, "added successfully")
+    //         const id = destData._id;
+    //         const newtour= new tourModule({
+    //     ...req.body,
+    //     destination: id,
+    //   });
+
+    //   await newtour.save();
+            Handler.resHandler(res,200,true,{destData,newtour}, "added successfully")
 
         }
         catch(e){
@@ -39,6 +48,7 @@ class destination{
     static update = async (req,res)=>{
         try{
             const destData= await destinationModel.findByIdAndUpdate(req.params.id,req.body)
+            await destData.save()
             Handler.resHandler(res,200,true,destData, " data added ")
 
         }
@@ -84,4 +94,4 @@ class destination{
 }
 }
 
-module.exports= destination
+module.exports= Destination

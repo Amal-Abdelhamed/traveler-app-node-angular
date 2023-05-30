@@ -1,0 +1,126 @@
+{
+  "name": "Italy",
+  "cover: "https://gaviaspreview.com/wp/tevily/wp-content/uploads/2021/09/tour-11.jpg",
+  "description": "Lorem ipsum available isn but the majority have suffered",
+  "info":[{"max-guests":35},{"min-age":13},{"location":"Italy"}]  =>>>> info in toure
+  "continent": "Europe",
+  "lang-spoken": ["Italian", "German"],
+  "Arean": 88,           //>>>> Number
+  "tours":
+  [              //>>>> Array Of Objects{Tour}
+  {"name":"Sri Lanka One Life Adventures",
+  "location":" Central Park West NY, USA",
+  "price": 1475,         //>>>> Number
+  "duratrion": 10,       //>>>> Number   
+  "type": "Beache",
+  "overview":"Lorem ipsum available isn but the majority have suffered",          
+  "include" :["lorem", "Pick and Drop Services", "1 Meal Per day" ],              //.... Array Of Strings
+  "exclude" :["Insurance", "Additional Services", "Tickets" ],                    //.... Array Of Strings
+  "amenities" :["InsuranceCar Parking", "Free Coupons", "Laundry service" ],      //.... Array Of Strings
+  "plan":[{"day":"Day 1", "details":"Lorem ipsum available"},                     //.... Array Of Objects {Tour Days}
+  {"day":"Day 2", "details":"Lorem ipsum available"},
+  {"day":"Day 3", "details":"Lorem ipsum available"},]
+  },
+  {tour2},
+  {tour3},
+  {tour4}
+  ]
+  }
+
+
+
+const mongoose = require('mongoose');
+
+const tourSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  cover: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  info: [
+    {
+      "max-guests": {
+        type: Number,
+      },
+      "min-age": {
+        type: Number,
+      },
+      location: {
+        type: String,
+      },
+    },
+  ],
+  continent: {
+    type: String,
+    required: true,
+  },
+  "lang-spoken": {
+    type: [String],
+    required: true,
+  },
+  Arean: {
+    type: Number,
+    required: true,
+  },
+  tours: [
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+      location: {
+        type: String,
+        required: true,
+      },
+      price: {
+        type: Number,
+        required: true,
+      },
+      duration: {
+        type: Number,
+        required: true,
+      },
+      type: {
+        type: String,
+        required: true,
+      },
+      overview: {
+        type: String,
+        required: true,
+      },
+      include: {
+        type: [String],
+        required: true,
+      },
+      exclude: {
+        type: [String],
+        required: true,
+      },
+      amenities: {
+        type: [String],
+        required: true,
+      },
+      plan: [
+        {
+          day: {
+            type: String,
+            required: true,
+          },
+          details: {
+            type: String,
+            required: true,
+          },
+        },
+      ],
+    },
+  ],
+});
+
+module.exports = mongoose.model('Tour', tourSchema);
