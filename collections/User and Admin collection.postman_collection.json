@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "018328bb-f1ca-47ae-8816-6aaeef1ab6c0",
+		"name": "User and Admin collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22097529",
+		"_collection_link": "https://gold-desert-648714.postman.co/workspace/travel-Api~6699c828-14c1-42d5-bd18-695cde8b0d93/collection/22097529-018328bb-f1ca-47ae-8816-6aaeef1ab6c0?action=share&creator=22097529&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"Amera_Admin\",\r\n    \"fristName\":\"Amera\",\r\n    \"lastName\":\"AboBakr\",\r\n    \"email\":\"Amera@gmail.com\",\r\n    \"password\":\"#225Admin\",\r\n    \"gender\":\"female\",\r\n    \"age\":26,\r\n    \"phone\": \"+201085626131\",\r\n    \"role\":\"admin\",\r\n    \"isAdmin\":true\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/register",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \"email\":\"Ahmed@gmail.com\",\r\n    \"password\":\"#224Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/login",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUyZDljMjM2NjM2OTc4MWFjNzdhMTMiLCJpYXQiOjE2ODMxNTEzNDZ9.apraHW9uSC4r_TfGec010cWl8ar67NapG13VyymhLaY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/logout",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUyZGRlZTY2MmI3MTEzMWQ5Mzk1ZDgiLCJpYXQiOjE2ODMxNTIzOTl9.-dBzkwAdqLrQMldHH_s7lk1VUGPIwuu-So_2JKsbw1w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/me",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit information",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fristName\":\"tamer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/editInfo/6452f014addc56e1c7ac1a8c",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"editInfo",
+								"6452f014addc56e1c7ac1a8c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delet my acoount",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUyZmVkOTg5OWJhNjUxNjVlYTA0OGEiLCJpYXQiOjE2ODMxNjExOTB9.xl4wKYtTSirYSj1ku-P5PhrCIpopb3ARqsDipz2bqWA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/deletSingle/6452fed9899ba65165ea048a",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"deletSingle",
+								"6452fed9899ba65165ea048a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "delete All users",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODMxNjIxMjZ9.LhRvN_4Gc3rbySJL4JgV7ZzxpaE_flKQCakquGSTxMw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/deleteAllUsers",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"deleteAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show All users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODMxNjIxMjZ9.LhRvN_4Gc3rbySJL4JgV7ZzxpaE_flKQCakquGSTxMw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/showAllUser",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"showAllUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show single user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODMxNjIxMjZ9.LhRvN_4Gc3rbySJL4JgV7ZzxpaE_flKQCakquGSTxMw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/showUser/6452ed0c576770fc56a22e9a",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"showUser",
+								"6452ed0c576770fc56a22e9a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout all users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODMxNjIxMjZ9.LhRvN_4Gc3rbySJL4JgV7ZzxpaE_flKQCakquGSTxMw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/logoutAll",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"logoutAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show all Admins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODMxNjIxMjZ9.LhRvN_4Gc3rbySJL4JgV7ZzxpaE_flKQCakquGSTxMw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/showAllAdmin",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"showAllAdmin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000/api/",
+			"type": "string"
+		}
+	]
+}

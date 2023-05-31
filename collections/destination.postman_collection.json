@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "46c63397-4c15-4ae3-9bfa-eb34b66e26cc",
+		"name": "travel app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26815581"
+	},
+	"item": [
+		{
+			"name": "add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Spain\",\r\n    \"description\":\"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some injected\",\r\n    \"overview\":[\r\n        {\"country\":\"america\",\r\n        \"visareq\":\"Personal Documents Requied\",\r\n        \"language\":\"English\",\r\n        \"currency\":\"USD\",\r\n        \"Area\":\"88.000\"}\r\n    ]\r\n    \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/destination/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/deleteone/6456bee8236320d123edeff2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"deleteone",
+						"6456bee8236320d123edeff2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteall",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/update/6456bee8236320d123edeff2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"update",
+						"6456bee8236320d123edeff2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/single/6456bee8236320d123edeff2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"single",
+						"6456bee8236320d123edeff2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

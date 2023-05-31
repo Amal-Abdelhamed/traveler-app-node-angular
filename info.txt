@@ -1,0 +1,9 @@
+main  Admin information 
+token : bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODMxNjIxMjZ9.LhRvN_4Gc3rbySJL4JgV7ZzxpaE_flKQCakquGSTxMw
+{ "email":"Ahmed@gmail.com",
+    "password":"#224Admin"
+}
+
+user to test api 
+ "email":"ali@gmail.com",
+    "password":"!gmT78M@3a",

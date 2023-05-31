@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "15ded9bc-0351-4290-8b30-fa39c5f8ea14",
+		"name": "travel app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22097529",
+		"_collection_link": "https://gold-desert-648714.postman.co/workspace/Api-exam-system~bf2b5f7d-2e33-40e4-b489-a24c9a524c6f/collection/22097529-15ded9bc-0351-4290-8b30-fa39c5f8ea14?action=share&creator=22097529&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODU0NDU4MDR9.3aXF_g0j57bxWkR_BJE2bDfBu0_AkilmEuUu7-sB5F0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"usa Tour\",\r\n  \"description\": \"Experience the culture, history, and natural beauty of Thailand on this 10-day tour.\",\r\n  \"overview\": [\r\n    {\r\n      \"country\": \"usa\",\r\n      \"visareq\": \"Visa-free for most countries, check with your embassy for details\",\r\n      \"language\": [\"Thai\", \"English\"],\r\n      \"currency\": \"Thai baht\",\r\n      \"Area\": \"513,120 sq km\"\r\n    }\r\n  ],\r\n  \"cover\": \"https://www.example.com/thailand.jpg\",\r\n  \"continent\": \"Asia\",\r\n  \"info\": [\r\n    {\r\n      \"max-guests\": 20,\r\n      \"min-age\": 18,\r\n      \"location\": \"Bangkok\"\r\n    },\r\n    {\r\n      \"max-guests\": 20,\r\n      \"min-age\": 18,\r\n      \"location\": \"Chiang Mai\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/destination/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteone",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODU0NDU4MDR9.3aXF_g0j57bxWkR_BJE2bDfBu0_AkilmEuUu7-sB5F0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/deleteone/6456bee8236320d123edeff2?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"deleteone",
+						"6456bee8236320d123edeff2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteall",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODU0NDU4MDR9.3aXF_g0j57bxWkR_BJE2bDfBu0_AkilmEuUu7-sB5F0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUzMDQwNGVjMDIyODZmNjIwMTI3ZjQiLCJpYXQiOjE2ODU0NDU4MDR9.3aXF_g0j57bxWkR_BJE2bDfBu0_AkilmEuUu7-sB5F0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Thailand \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/destination/update/6475f2192ad0d74a6a74764f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"update",
+						"6475f2192ad0d74a6a74764f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/destination/single/6456bee8236320d123edeff2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"destination",
+						"single",
+						"6456bee8236320d123edeff2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
