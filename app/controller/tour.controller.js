@@ -1,40 +1,39 @@
 const tourModel = require('../../database/models/tour.model')
-const destinationModel=require('../../database/models/destination.model')
+const destinationModel = require('../../database/models/destination.model')
 const handler = require('../handler')
 
 class Tour {
     static addTour = async (req, res) => {
         try {
+            // in the frontend i will add with the Tour the _id of the specific destination
+            // in the body i will add the _id of the destination 
             const newTour = new tourModel(req.body)
-
             await newTour.save()
             handler.resHandler(res, 200, 'success', newTour, 'new tour add successful')
         } catch (e) {
-            handler.resHandler(res,500,false,e.message, "failed to add  tour")
+            handler.resHandler(res, 500, false, e.message, "failed to add  tour")
         }
     }
-    static desTours= async(req, res)=>{
-        try{
-                         const allTours= await destinationModel.findById(req.params.id)
-                         req.tour=allTours
-                         console.log(allTours);
-             await allTours.tours.populate("desTours")
-             handler.resHandler(res,200,'success',req.user.desTours,'desTours success')
+    static desTours = async (req, res) => {
+        try {
+            const destination = await destinationModel.findOne({ _id: req.params.id }).populate("desTours")
+            console.log(destination);
+            handler.resHandler(res, 200, 'success', { destination, desTours: destination.desTours }, 'desTours success')
         }
         catch (e) {
-            handler.resHandler(res,500,false,e.message, "failed to show tour")
+            handler.resHandler(res, 500, false, e.message, "failed to show tour")
         }
     }
 
     static editTour = async (req, res) => {
         try {
-             const tour = await tourModel.findByIdAndUpdate(req.params.id,req.body)
-            
-                await tour.save()
-                handler.resHandler(res, 200, true, tour, "tour edited successfully")
-            }
+            const tour = await tourModel.findByIdAndUpdate(req.params.id, req.body)
+
+            await tour.save()
+            handler.resHandler(res, 200, true, tour, "tour edited successfully")
+        }
         catch (e) {
-            handler.resHandler(res,500,false,e.message, "failed to edit  tour")
+            handler.resHandler(res, 500, false, e.message, "failed to edit  tour")
         }
     }
 
@@ -46,17 +45,18 @@ class Tour {
             }
             handler.resHandler(res, 200, 'success', delTour, 'Tour deleted')
         } catch (e) {
-           handler.resHandler(res,500,false,e.message, "failed to delete  tour")
+            handler.resHandler(res, 500, false, e.message, "failed to delete  tour")
         }
     }
 
     static allTour = async (req, res) => {
         try {
             const newTour = await tourModel.find()
-            const tourNum=newTour.length
-            handler.resHandler(res, 200, 'success', {tourNum,newTour}, 'All Tour')
+            const tourNum = newTour.length
+            handler.resHandler(res, 200, 'success', { tourNum, newTour }, 'All Tour')
         } catch (e) {
-handler.resHandler(res,500,false,e.message, "failed to show all tour")        }
+            handler.resHandler(res, 500, false, e.message, "failed to show all tour")
+        }
     }
 
     static delAllTour = async (req, res) => {
@@ -64,7 +64,7 @@ handler.resHandler(res,500,false,e.message, "failed to show all tour")        }
             const newTour = await tourModel.deleteMany()
             handler.resHandler(res, 200, 'success', newTour, 'Tour deleted successfull')
         } catch (e) {
-            handler.resHandler(res,500,false,e.message, "failed delete all  tour")
+            handler.resHandler(res, 500, false, e.message, "failed delete all  tour")
         }
     }
 
@@ -88,11 +88,11 @@ handler.resHandler(res,500,false,e.message, "failed to show all tour")        }
         }
         catch (e) {
             console.log(e);
-            handler.resHandler(res,500,false,e.message, "failed to add  pic")
+            handler.resHandler(res, 500, false, e.message, "failed to add  pic")
         }
     }
 
 
-   }
+}
 
 module.exports = Tour
